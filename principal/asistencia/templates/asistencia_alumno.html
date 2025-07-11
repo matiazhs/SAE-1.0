@@ -1,0 +1,35 @@
+{% block content %}
+<div class="container mt-4">
+    <h2>Asistencias de {{ alumno }}</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Turno</th>
+                <th>Tipo</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for asistencia in asistencias %}
+            <tr>
+                <td>{{ asistencia.fecha }}</td>
+                <td>{{ asistencia.turno }}</td>
+                <td>{{ asistencia.tipo }}</td>
+                <td>
+                    {% if asistencia.presente %}
+                    ✅ Presente
+                    {% else %}
+                    ❌ Ausente
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No hay asistencias registradas.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

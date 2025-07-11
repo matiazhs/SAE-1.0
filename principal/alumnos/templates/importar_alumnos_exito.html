@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Alumno</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/estilos_importacion.css' %}">
+
+</head>
+
+<body>
+    {% include "barradenavegacion.html" %}
+
+    <div class="container-importacion">
+        <div class="auth-section">
+            <h2 class="text-center">IMPORTACIÓN COMPLETADA</h2>
+
+            <div class="alert alert-success">
+                <h4>Resultados:</h4>
+                <p>Registros importados exitosamente: <strong>{{ registros_exitosos }}</strong></p>
+                <p>Registros con errores: <strong>{{ registros_fallidos }}</strong></p>
+            </div>
+
+            {% if errores %}
+            <div class="mt-4">
+                <h4>Detalle de errores:</h4>
+                <ul class="list-group">
+                    {% for error in errores %}
+                    <li class="list-group-item list-group-item-danger">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <div class="d-flex justify-content-center mt-4">
+                <a href="{% url 'alumnos_listado' %}" class="auth-btn">VER LISTADO</a>
+                <a href="{% url 'importar_alumnos' %}" class="btn btn-logout ml-3">IMPORTAR MÁS</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

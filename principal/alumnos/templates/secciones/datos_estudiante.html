@@ -1,0 +1,170 @@
+<br>
+<h5 class="mt-3">Datos estudiante</h5>
+<div class="mb-3 negrita">
+    {{ form.apellido.label_tag }} {{ form.apellido }}
+</div>
+<div class="mb-3 negrita">
+    {{ form.nombre.label_tag }} {{ form.nombre }}
+</div>
+<div class="mb-3 negrita" >
+    {{ form.fecha_nacimiento.label_tag }} {{ form.fecha_nacimiento }}
+</div>
+
+<!-- DNI -->
+<hr class="my-4">
+<h5 class="mt-3">DNI/CUIL</h5>
+<div class="mb-3">
+    <div class="negrita">{{ form.posee_dni.label_tag }}</div> {{ form.posee_dni }}
+</div>
+
+<!-- Si posee DNI argentino -->
+<div id="dni-argentino-detalle" style="display: none;">
+    <div class="mb-3">
+        <div class="negrita">{{ form.num_dni.label_tag }} {{ form.num_dni }}</div>
+    </div>
+    <div class="mb-3">
+        <div class="negrita">{{ form.cuil.label_tag }} {{ form.cuil }}</div>
+    </div>
+</div>
+
+<!-- Si NO posee DNI -->
+<div id="dni-extra" style="display: none;">
+    <div class="mb-3">
+        <div class="negrita">{{ form.cpi.label_tag }}</div>
+        {{ form.cpi }}
+    </div>
+
+    <div class="mb-3">
+        <div class="negrita">{{ form.doc_extranjero.label }}</div>
+        {{ form.doc_extranjero }}
+    </div>
+
+    <div id="doc-extranjero-detalle" style="display: none;">
+        <div class="mb-3">
+            <div class="negrita">{{ form.tipo_doc_extranjero.label_tag }} {{ form.tipo_doc_extranjero }}</div>
+        </div>
+        
+        <div class="mb-3">
+            <div class="negrita">{{ form.num_doc_extranjero.label_tag }} {{ form.num_doc_extranjero }}</div>
+        </div>
+    </div>
+</div>
+
+<hr class="my-4">
+<h5 class="mt-3">Identidad de género</h5>
+<div class="mb-3">
+    <div class="negrita">{{ form.identidad_genero.label_tag }}</div> {{ form.identidad_genero }}
+</div>
+
+<div class="mb-3 negrita" id="otra-identidad" style="display: none;">
+    {{ form.identidad_genero_otra.label_tag }} {{ form.identidad_genero_otra }}
+</div>
+
+<hr class="my-4">
+<h5>Nacionalidad y Direccion</h5>
+
+<div class="mb-3">
+    <div class="negrita">{{ form.lugar_nacimiento.label_tag }}</div>
+    {{ form.lugar_nacimiento }}
+</div>
+
+<div id="extranjero-nacionalidad" class="mb-3" style="display: none;">
+    <div class="negrita">{{ form.nacionalidad.label_tag }}</div>
+    {{ form.nacionalidad }}
+</div>
+
+<div id="nacimiento-argentina" style="display: none;">
+    <div class="mb-3">
+        <div class="negrita">{{ form.nac_argentina_opcion.label_tag }}</div>
+        {{ form.nac_argentina_opcion }}
+    </div>
+
+    <div id="provincia-otra" class="mb-3" style="display: none;">
+        <div class="negrita">{{ form.provincia.label_tag }}</div>
+        {{ form.provincia }}
+    </div>
+</div>
+  
+<h5 class="mt-3">Direccion</h5>
+    <div id="direccion-bsas" style="display: none;" class="negrita">
+        <div class="mb-3">{{ form.distrito.label_tag }} {{ form.distrito }}</div>
+        <div class="mb-3">{{ form.localidad.label_tag }} {{ form.localidad }}</div>
+        <div class="mb-3">{{ form.calle.label_tag }} {{ form.calle }}</div>
+        <div class="mb-3">{{ form.numero.label_tag }} {{ form.numero }}</div>
+        <div class="mb-3">{{ form.piso.label_tag }} {{ form.piso }}</div>
+        <div class="mb-3">{{ form.torre.label_tag }} {{ form.torre }}</div>
+        <div class="mb-3">{{ form.departamento.label_tag }} {{ form.departamento }}</div>
+        <div class="mb-3">{{ form.entre_calle.label_tag }} {{ form.entre_calle }}</div>
+        <div class="mb-3">{{ form.y_calle.label_tag }} {{ form.y_calle }}</div>
+        <div class="mb-3">{{ form.otro_dato.label_tag }} {{ form.otro_dato }}</div>
+        <div class="mb-3">{{ form.telefono.label_tag }} {{ form.telefono }}</div>
+        <div class="mb-3">{{ form.telefono_celular.label_tag }} {{ form.telefono_celular }}</div>
+    
+</div>
+
+<hr class="my-4">
+<h5 class="mt-3">Grupo familiar</h5>
+<div class="mb-3">
+    <div class="negrita">{{ form.tiene_hermanos.label_tag }}</div>
+    {{ form.tiene_hermanos }}
+</div>
+
+<div id="hermanos-detalle" style="display: none;">
+  <div class="mb-3">
+    <div class="negrita">{{ form.cantidad_hermanos.label_tag }} {{ form.cantidad_hermanos }}</div>
+  </div>
+  <div class="mb-3">
+    <div class="negrita">{{ form.hermanos_en_institucion.label_tag }} {{ form.hermanos_en_institucion }}</div>
+  </div>
+</div>
+
+<div class="mb-3">
+    <div class="negrita">{{ form.idioma_hogar.label_tag }}</div>
+    {{ form.idioma_hogar }}
+</div>
+
+<div id="lenguas-detalle" style="display: none;">
+    <div class="mb-3">
+       <div class="negrita">{{ form.leng_indigenas.label_tag }}</div>
+        {{ form.leng_indigenas }}
+    </div>
+
+    <div class="mb-3">
+        <div class="negrita">{{ form.otras_leng.label_tag }}</div>
+        {{ form.otras_leng }}
+    </div>
+</div>
+
+<div class="mb-3">
+    <div class="negrita">{{ form.des_porg.label_tag }}</div>
+    {{ form.des_porg }}
+</div>
+
+<div class="mb-3">
+    <div class="negrita">{{ form.per_auh.label_tag }}</div>
+    {{ form.per_auh }}
+</div>
+
+<div class="mb-3">
+    <div class="negrita">{{ form.per_prog.label_tag }}</div>
+    {{ form.per_prog }}
+</div>
+
+<div class="mb-3">
+    <div class="negrita">{{ form.medio_transporte.label_tag }}</div>
+    {{ form.medio_transporte }}
+</div>
+
+<hr class="my-4">
+<h5 class="mt-3">Solo contestan estudiantes de 14 años o mas</h5>
+<div class="mb-3">
+    <div class="negrita">{{ form.tiene_hijos.label_tag }}</div>
+    {{ form.tiene_hijos }}
+</div>
+
+<div id="as-maternales" style="display: none;">
+    <div class="mb-3">
+        <div class="negrita">{{ form.asiste_maternales.label_tag }}</div>
+        {{ form.asiste_maternales }}
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<br>
+<h5 class="mt-3">DATOS DEL ESTABLECIMIENTO EN EL QUE SE INSCRIBE</h5>
+<div class="mb-3 negrita">
+    {{ form.distrito_esta.label_tag }} {{ form.distrito_esta }}
+</div>
+
+<div class="mb-3 negrita">
+    {{ form.nom_escuela.label_tag }} {{ form.nom_escuela }}
+</div>
+
+<div class="mb-3 negrita" >
+    {{ form.numero_esta.label_tag }} {{ form.numero_esta }}
+</div>
+
+<div class="mb-3 negrita">
+    {{ form.cue.label_tag }} {{ form.cue }}
+</div>
+
+<div class="mb-3">
+    <div class="negrita"> {{ form.clave_prov.label_tag }} </div>
+    {{ form.clave_prov }}
+</div>
+
+<div class="mb-3">
+    <div class="negrita"> {{ form.sector_pp.label_tag }} </div>
+    {{ form.sector_pp }}
+</div>
+
+<hr class="my-4">
+<h5 class="mt-3">DATOS DEL ESTABLECIMIENTO DE PROCEDENCIA</h5>
+<center><h6>(Completar solo si el año pasado o este año asistió a otro establecimiento)</h6></center>
+
+
+<div class="mb-3">
+    <div class="negrita"> {{ form.sector_pp_2.label_tag }} </div>
+    {{ form.sector_pp_2 }}
+</div>
+
+<div id="pais-det-1" style="display: none;">
+  <div class="mb-3">
+    <div class="negrita">{{ form.esp_pais.label_tag }} </div>
+    {{ form.esp_pais }}
+  </div>
+</div>
+
+<div id="pais-det-2" style="display: none;">
+    <div class="mb-3">
+        <div class="negrita">{{ form.distrito_proc.label_tag }} {{ form.distrito_proc }}</div>
+    </div>
+
+    <div class="mb-3">
+        <div class="negrita">{{ form.nom_escuela_proc.label_tag }} {{ form.nom_escuela_proc }}</div>
+    </div>
+
+    <div class="mb-3">
+        <div class="negrita">{{ form.numero_proc.label_tag }} {{ form.numero_proc }}</div>
+    </div>
+
+    <div class="mb-3">
+        <div class="negrita">{{ form.nivel_mod.label_tag }} {{ form.nivel_mod }}</div>
+    </div>
+    
+    <div class="mb-3">
+        <div class="negrita">{{ form.sector_pp_3.label_tag }}</div>
+        {{ form.sector_pp_3 }}
+    </div>
+
+    <div class="mb-3">
+        <div class="negrita"> {{ form.dependencias.label_tag }} </div>
+        {{ form.dependencias }}
+    </div>
+
+    <div class="mb-3">
+        <div class="negrita"> {{ form.select_prov.label_tag }} </div>
+        {{ form.select_prov }}
+    </div>
+
+    <div id="prov-det" style="display: none;">
+        <div class="mb-3">
+            <div class="negrita"> {{ form.prov_4.label_tag }} </div>
+            {{ form.prov_4 }}
+        </div>
+    </div>
+
+</div>

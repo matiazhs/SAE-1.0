@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Cargo y Docente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/estilos_editar.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    {% include "barradenavegacion.html" %}
+    <div class="container mt-5">
+        <div class="auth-section">
+            <h2 class="text-center">DETALLE DEL CARGO</h2>
+
+            <!-- Detalle del Cargo -->
+            <div class="form-group mb-3">
+                <label class="form-label">Cargo</label>
+                <input type="text" class="form-control" value="{{ cargo.cargo }}" readonly>
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="form-label">Especialidad</label>
+                <input type="text" class="form-control"
+                    value="{% if cargo.especialidades %}{{ cargo.especialidades }}{% else %}Sin especialidad{% endif %}"
+                    readonly>
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="form-label">Cursos</label>
+                {% if cargo.curso.all %}
+                <ul class="list-group">
+                    {% for curso in cargo.curso.all %}
+                    <li class="list-group-item">{{ curso }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <input type="text" class="form-control" value="Sin cursos asignados" readonly>
+                {% endif %}
+            </div>
+
+            <hr>
+
+            <!-- Detalle del Docente asociado -->
+            <h2 class="text-center mt-4">DETALLE DEL DOCENTE</h2>
+            {% if cargo.docente %}
+            <div class="form-group mb-3">
+                <label class="form-label">Nombre y Apellido</label>
+                <input type="text" class="form-control" value="{{ cargo.docente.nombre }} {{ cargo.docente.apellido }}" readonly>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">CUIL</label>
+                <input type="text" class="form-control" value="{{ cargo.docente.cuil }}" readonly>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Domicilio</label>
+                <input type="text" class="form-control" value="{{ cargo.docente.domicilio }}" readonly>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" value="{{ cargo.docente.fecha_nacimiento }}" readonly>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" value="{{ cargo.docente.email }}" readonly>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Número de Legajo</label>
+                <input type="text" class="form-control" value="{{ cargo.docente.numero_legajo }}" readonly>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Teléfono</label>
+                <input type="text" class="form-control" value="{{ cargo.docente.telefono }}" readonly>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Teléfono de Emergencia</label>
+                <input type="text" class="form-control" value="{{ cargo.docente.telefono_emergencia }}" readonly>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Fecha de Ingreso</label>
+                <input type="date" class="form-control" value="{{ cargo.docente.fecha_ingreso }}" readonly>
+            </div>
+            {% else %}
+            <p class="text-warning" align="center">No hay docente asignado a este cargo.</p>
+            {% endif %}
+
+            <div class="text-center mt-4">
+                <a href="{% url 'asgcargos_listado' %}" class="btn btn-outline-secondary">VOLVER</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

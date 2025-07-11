@@ -1,0 +1,72 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Curso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/estilos_editar.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    {% include "barradenavegacion.html" %}
+
+    <div class="container mt-5">
+        <div class="auth-section">
+            <h2 class="text-center">EDITAR CURSO</h2>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <!-- Nombre -->
+                <div class="form-group mb-4">
+                    <label for="{{ form.nombre.id_for_label }}" class="form-label">Nombre</label>
+                    {{ form.nombre|add_class:"form-control" }}
+                    {% if form.nombre.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.nombre.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Especialidades -->
+                <div class="form-group mb-4">
+                    <label for="{{ form.especialidades.id_for_label }}" class="form-label">Especialidades</label>
+                    {{ form.especialidades }}
+                    {% if form.especialidades.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.especialidades.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Turnos -->
+                <div class="form-group mb-4">
+                    <label for="{{ form.turnos.id_for_label }}" class="form-label">Turnos</label>
+                    {{ form.turnos }}
+                    {% if form.turnos.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.turnos.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="auth-btn">ACTUALIZAR</button>
+                    <a href="{% url 'gestion_cursos' %}" class="btn btn-logout">CANCELAR</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

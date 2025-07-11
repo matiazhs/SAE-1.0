@@ -1,0 +1,153 @@
+.negrita {
+    font-weight: bold;
+}
+
+form {
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.98);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.5s ease-out;
+}
+
+h2,
+h5 {
+    color: #2b2b2b;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.4m;
+}
+
+/* Form Layout */
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Styling */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+/* Hidden sections */
+#dni-extra,
+#dni-argentino-detalle,
+#doc-extranjero-detalle,
+#otra-identidad,
+#extranjero-nacionalidad,
+#nacimiento-argentina,
+#provincia-otra,
+#hermanos-detalle,
+#lenguas-detalle,
+#as-maternales {
+    display: none;
+}
+
+/* Spacing between sections */
+.mb-3 {
+    margin-bottom: 15px;
+}
+
+
+/* Botón de envío */
+form button[type="submit"] {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    margin-top: 0.5rem;
+}
+
+form button[type="submit"]:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Vista previa del avatar */
+.avatar-preview {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.avatar-preview img.avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+.nav-tabs .nav-link {
+    color: black;
+    /* texto normal de pestaña */
+}
+
+.nav-tabs .nav-link.active {
+    background-color: black;
+    /* fondo de la pestaña activa */
+    color: white;
+    /* texto blanco en la activa */
+    border-color: black black transparent;
+    /* bordes para integrarlo visualmente */
+}
+
+.btn-primary {
+    background-color: black;
+    border-color: black;
+}
+
+.btn-primary:hover {
+    background-color: #333;
+    border-color: #333;
+}
+
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:focus:active,
+.btn-primary:visited {
+    background-color: black !important;
+    border-color: black !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+@media (max-width: 576px) {
+    form {
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h5 {
+        font-size: 1.1rem;
+    }
+}

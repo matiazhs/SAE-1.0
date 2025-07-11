@@ -1,0 +1,129 @@
+/* COLORES DEL PAGINADOR DE ALUMNOS */
+/* ****************************************************** */
+/* Cambiar el fondo del paginador (números) */
+.dataTables_wrapper .dataTables_paginate .pagination .page-link {
+    background-color: #f0f0f0 !important;
+    color: #919491 !important;
+    border: 1px solid #ccc !important;
+}
+
+/* Cambiar el fondo del botón activo (página actual) */
+.dataTables_wrapper .dataTables_paginate .pagination .page-item.active .page-link {
+    background-color: #333 !important;
+    color: #fff !important;
+    border-color: #919491 !important;
+}
+
+/* Cambiar el fondo al pasar el cursor (hover) */
+.dataTables_wrapper .dataTables_paginate .pagination .page-link:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+    border-color: #333 !important;
+}
+
+/* Cambiar el color de las flechas de navegación (Next/Previous) */
+.dataTables_wrapper .dataTables_paginate .pagination .page-item.previous .page-link,
+.dataTables_wrapper .dataTables_paginate .pagination .page-item.next .page-link {
+    background-color: #f0f0f0 !important;
+    color: #333 !important;
+    border: 1px solid #ccc !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .pagination .page-item.previous.active .page-link,
+.dataTables_wrapper .dataTables_paginate .pagination .page-item.next.active .page-link {
+    background-color: #333 !important;
+    color: #fff !important;
+    border-color: #333 !important;
+}
+
+
+/* ESTILOS PARA LOS FILTROS - ENFOQUE Y SELECCION /*
+/* ****************************************************** */
+
+
+.form-select:focus,
+.form-control:focus {
+    border-color: #555555 !important;
+    box-shadow: 0 0 0 0.25rem rgba(85, 85, 85, 0.25) !important;
+    outline: 0;
+}
+
+/* Estilo para el botón de limpiar búsqueda */
+#btnLimpiarBusqueda:hover {
+    background-color: #333333 !important;
+    border-color: #333333 !important;
+}
+
+/* Estilo para el input de búsqueda */
+#buscadorPersonalizado {
+    border-right: none;
+}
+
+/* Mantener consistencia en los filtros */
+.form-select,
+.form-control {
+    border-color: #e0e0e0;
+}
+
+
+/* ****************************************************** */
+
+/* Estilos para el modal de materias */
+.modal-docentes .modal-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.modal-docentes .table {
+    font-size: 0.85rem;
+    /* Reduce el tamaño de fuente para que quepa más contenido */
+}
+
+.modal-docentes th {
+    white-space: nowrap;
+    /* Evita que el texto del encabezado se divida en varias líneas */
+}
+
+.modal-docentes td {
+    word-wrap: break-word;
+    /* Permite que el contenido largo se divida en varias líneas */
+    max-width: 300px;
+    /* Establece un ancho máximo para las celdas */
+}
+
+/* Para la versión no fullscreen */
+@media (min-width: 992px) {
+    .modal-docentes {
+        max-width: 95%;
+        width: 95%;
+    }
+}
+
+.table td,
+.table th {
+    white-space: nowrap;
+}
+
+.contenido-situacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.celda-situacion .contenido-situacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
+div.dataTables_filter {
+    display: none !important;
+}

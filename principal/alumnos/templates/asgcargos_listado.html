@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/estilos_listados.css' %}">
+</head>
+
+<body>
+    {% include "barradenavegacion.html" %}
+    <br><br><br>
+
+    <div class="container">
+        <h1 class="mb-4">{{ titulo }}</h1>
+
+        <!-- Filtros superiores -->
+        <div class="row mb-3">
+            <div class="col-12 mb-3">
+                <label for="buscadorPersonalizado" class="form-label">Buscar en todos los campos:</label>
+                <div class="input-group">
+                    <input type="text" id="buscadorPersonalizado" class="form-control"
+                        placeholder="Escribe para buscar...">
+                    <button class="btn btn-dark" type="button" id="btnLimpiarBusqueda">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-12 col-md-4">
+                <label for="filtroCargo" class="form-label">Filtrar por Cargo:</label>
+                <select id="filtroCargo" class="form-select">
+                    <option value="">Todos</option>
+                    {% for cargo_nombre in cargos_unicos %}
+                    <option value="{{ cargo_nombre }}">{{ cargo_nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table id="tablaCargos" class="table table-striped table-bordered align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>CUIL</th>
+                        <th>Número de Legajo</th>
+                        <th>Apellido</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Cargo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cargo in cargos %}
+                    <tr>
+                        <td>{{ cargo.docente.cuil }}</td>
+                        <td>{{ cargo.docente.numero_legajo }}</td>
+                        <td>{{ cargo.docente.apellido }}</td>
+                        <td>{{ cargo.docente.nombre }}</td>
+                        <td>{{ cargo.docente.email }}</td>
+                        <td>{{ cargo.docente.telefono }}</td>
+                        <td>{{ cargo.cargo.nombre }}</td>
+                        
+                        <td>
+
+                            <a href="{% url 'detcargo_listado' pk=cargo.pk %}" class="btn btn-sm boton-vermas"
+                                title="Ver Detalle">
+                                <i class="far fa-file"></i>
+                            </a>
+                            <a href="{% url 'asgcargo_editar' pk=cargo.pk %}" class="btn btn-sm boton-editar"
+                                title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="{% url 'cargo_eliminar' pk=cargo.pk %}" class="btn btn-sm boton-eliminar"
+                                title="Eliminar">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+            <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+            <script src="{% static 'js/script_asgcargos_listado.js' %}"></script>
+</body>
+
+</html>

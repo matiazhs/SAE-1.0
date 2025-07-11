@@ -1,0 +1,115 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración Escolar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/estilos_editar.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    {% include "barradenavegacion.html" %}
+
+    <div class="container mt-5">
+        <div class="auth-section">
+            <h2 class="text-center">Datos de la Institucion</h2>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <!-- Distrito -->
+                <div class="form-group mb-3">
+                    <label for="{{ form.distrito.id_for_label }}" class="form-label">Distrito</label>
+                    {{ form.distrito|add_class:"form-control" }}
+                    {% if form.distrito.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.distrito.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Nombre de la escuela -->
+                <div class="form-group mb-3">
+                    <label for="{{ form.nombre_escuela.id_for_label }}" class="form-label">Nombre de la Escuela</label>
+                    {{ form.nombre_escuela|add_class:"form-control" }}
+                    {% if form.nombre_escuela.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.nombre_escuela.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Número -->
+                <div class="form-group mb-3">
+                    <label for="{{ form.numero.id_for_label }}" class="form-label">Número</label>
+                    {{ form.numero|add_class:"form-control" }}
+                    {% if form.numero.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.numero.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Sector de gestión -->
+                <div class="form-group mb-3">
+                    <label for="{{ form.sector_gestion.id_for_label }}" class="form-label">Sector de Gestión</label>
+                    {{ form.sector_gestion|add_class:"form-select" }}
+                    {% if form.sector_gestion.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.sector_gestion.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Clave provincial -->
+                <div class="form-group mb-3">
+                    <label for="{{ form.clave_provincial.id_for_label }}" class="form-label">Clave Provincial</label>
+                    {{ form.clave_provincial|add_class:"form-control" }}
+                    {% if form.clave_provincial.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.clave_provincial.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- CUE -->
+                <div class="form-group mb-4">
+                    <label for="{{ form.cue.id_for_label }}" class="form-label">CUE</label>
+                    {{ form.cue|add_class:"form-control" }}
+                    {% if form.cue.errors %}
+                    <div class="invalid-feedback d-block">
+                        {% for error in form.cue.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Botones -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="auth-btn">GUARDAR</button>
+                    <a href="{% url 'principal' %}" class="btn btn-logout">CANCELAR</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

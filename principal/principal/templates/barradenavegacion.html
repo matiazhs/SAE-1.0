@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link href="{% static 'css/estilos_navbar_principal.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: black;" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="{% url 'principal' %}">SAEv1.1</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page"
+                            href="{% url 'alumnos_listado' %}">Alumnos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page"
+                            href="{% url 'docentes_listado' %}">Docentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page"
+                            href="{% url 'asgcargos_listado' %}">Cargos</a>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Gestion</a>
+
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link active text-white" aria-current="page"
+                                    href="#">Calificaciones</a></li>
+
+                            <li class="nav-item"><a class="nav-link active text-white" aria-current="page"
+                                    href="#">Comunicados</a></li>
+
+                            <li class="nav-item"><a class="nav-link active text-white" aria-current="page"
+                                    href="{% url 'asistencia_listado' %}">Asistencia</a></li>
+
+                            <li class="nav-item"><a class="nav-link active text-white" aria-current="page"
+                                    href="#">Documentacion</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Configuracion
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'configuracion' %}">Perfil de la Institucion</a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li><a class="dropdown-item" href="{% url 'alta_alumno' %}">Nuevo Alumno</a></li>
+                            <li><a class="dropdown-item" href="{% url 'alta_docente' %}">Nuevo Docente</a></li>
+                            <li class="dropdown-submenu dropend">
+                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Gestión de Cargos
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'cargos_listado' %}">Gestión de Cargos</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'crear_asgcargo' %}">Asignación de Cargos</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'gestion_especialidades' %}">Gestion de Especialidades</a></li>
+                            <li><a class="dropdown-item" href="{% url 'gestion_turnos' %}">Gestion de Turnos</a></li>
+                            <li><a class="dropdown-item" href="{% url 'gestion_cursos' %}">Gestion de Cursos</a></li>
+                            <li><a class="dropdown-item" href="{% url 'gestion_grupos' %}">Gestion de Grupos</a></li>
+                            <li><a class="dropdown-item" href="{% url 'materias_listado' %}">Gestion de Materias</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Respaldos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Exportar Alumnos</a></li>
+                            <li><a class="dropdown-item" href="#">Exportar Personal</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'importar_alumnos' %}">Importar Alumnos de Archivo
+                                    Exel</a></li>
+                            <li><a class="dropdown-item" href="#">Importar Personal de Archivo Exel</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {% if user.avatar %}
+                            <img src="{{ user.avatar.url }}"
+                                style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                            {% else %}
+                            <img src="/static/img/default-avatar.png"
+                                style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                            {% endif %}
+
+                            Hola, <span class="d-inline-block text-truncate">{{user.first_name}}</span></a>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <form action="{% url 'logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="dropdown-item">Cerrar sesión</button>
+                                </form>
+                            </li>
+
+                            <li>
+                                <!-- <a class="dropdown-item" href="{% url 'edit_profile' %}">Editar perfil</a> -->
+                                <a class="dropdown-item" href="#">Editar perfil</a>
+                            </li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'login' %}">Iniciar sesión</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>

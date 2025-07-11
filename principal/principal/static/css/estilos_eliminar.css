@@ -1,0 +1,100 @@
+/* Fondo general */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 70px; /* espacio para navbar */
+}
+
+/* Tarjeta principal */
+.card {
+    box-shadow: 0 4px 8px rgba(11, 27, 44, 0.1); /* sombra azulada suave */
+}
+
+/* Encabezado */
+.card-header {
+    background-color: #34568B; /* azul oscuro suave */
+    color: #f1f1f1;
+    text-align: center;
+    padding: 20px 15px;
+    font-size: 1.5rem;
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+    background-color: #ffffff;
+    padding: 30px;
+}
+
+/* Alerta de advertencia */
+.alert-warning {
+    background-color: #dbe9f4; /* azul claro muy suave */
+    border-color: #a9c5e2; /* azul medio */
+    color: #254e78; /* azul oscuro */
+}
+
+/* Alerta crítica */
+.alert-critical {
+    background-color: #f0e5e8; /* rosa muy pálido */
+    border-color: #d6b7c2; /* rosa medio */
+    color: #5e2e3e; /* rosa oscuro */
+}
+
+/* Estilo para los datos del alumno */
+.bg-white.rounded.text-center.border {
+    border-color: #34568B; /* azul oscuro */
+    background-color: #fff;
+}
+
+/* Botones */
+.btn-eliminar {
+    background-color: #34568B;
+    border-color: #34568B;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background-color: #2a4570;
+    border-color: #223754;
+}
+
+/* Botón cancelar */
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Checkbox */
+.form-check-input:checked {
+    background-color: #34568B;
+    border-color: #34568B;
+}
+
+/* Footer */
+.card-footer {
+    background-color: #e9ecef;
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 576px) {
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .d-md-flex {
+        flex-direction: column !important;
+        align-items: stretch;
+    }
+}
+
+/* Icono alerta */
+.icono-alerta {
+    color: #5e2e3e; /* mismo rosa oscuro que alert-critical */
+}
