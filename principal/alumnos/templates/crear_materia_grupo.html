@@ -1,295 +1,363 @@
-{% load static %}
-{% load widget_tweaks %}
+{% load static %} {% load widget_tweaks %}
 
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editar Docente</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{% static 'css/estilos_editar.css' %}" rel="stylesheet">
-    <link href="{% static 'css/estilos_error.css' %}" rel="stylesheet">
+    <link
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link href="{% static 'css/estilos_editar.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/estilos_error.css' %}" rel="stylesheet" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     {% include "barradenavegacion.html" %}
     <div class="container mt-5">
-        <div class="auth-section">
-            <h1 class="text-center">ALTA MATERIA</h1>
-            <br>
+      <div class="auth-section">
+        <h1 class="text-center">ALTA MATERIA</h1>
+        <br />
 
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
-                    {{ message }}
-                </li>
-                {% endfor %}
-            </ul>
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li
+            class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"
+          >
+            {{ message }}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        <form method="post">
+          {% csrf_token %}
+
+          <!-- Nombre -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ materia_form.nombre.id_for_label }}"
+              class="form-label"
+              >Nombre</label
+            >
+            {{ materia_form.nombre|add_class:"form-control" }} {% if
+            materia_form.nombre.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.nombre.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
             {% endif %}
+          </div>
 
-            <form method="post">
-                {% csrf_token %}
+          <!-- Tipo -->
+          <div class="form-group mb-3">
+            <label for="{{ materia_form.tipo.id_for_label }}" class="form-label"
+              >Tipo</label
+            >
+            {{ materia_form.tipo|add_class:"form-control" }} {% if
+            materia_form.tipo.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.tipo.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Nombre -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.nombre.id_for_label }}" class="form-label">Nombre</label>
-                    {{ materia_form.nombre|add_class:"form-control" }}
-                    {% if materia_form.nombre.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.nombre.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- PID -->
+          <div class="form-group mb-3">
+            <label for="{{ materia_form.pid.id_for_label }}" class="form-label"
+              >PID</label
+            >
+            {{ materia_form.pid|add_class:"form-control" }} {% if
+            materia_form.pid.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.pid.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Tipo -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.tipo.id_for_label }}" class="form-label">Tipo</label>
-                    {{ materia_form.tipo|add_class:"form-control" }}
-                    {% if materia_form.tipo.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.tipo.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Cupo F -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ materia_form.cupof.id_for_label }}"
+              class="form-label"
+              >CUPOF</label
+            >
+            {{ materia_form.cupof|add_class:"form-control" }} {% if
+            materia_form.cupof.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.cupof.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- PID -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.pid.id_for_label }}" class="form-label">PID</label>
-                    {{ materia_form.pid|add_class:"form-control" }}
-                    {% if materia_form.pid.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.pid.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Fecha Toma Posesión -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ materia_form.fecha_toma_posesion.id_for_label }}"
+              class="form-label"
+              >Fecha de Toma de Posesión</label
+            >
+            {{ materia_form.fecha_toma_posesion|add_class:"form-control" }} {%
+            if materia_form.fecha_toma_posesion.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.fecha_toma_posesion.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Cupo F -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.cupof.id_for_label }}" class="form-label">CUPOF</label>
-                    {{ materia_form.cupof|add_class:"form-control" }}
-                    {% if materia_form.cupof.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.cupof.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Forma de Ingreso -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ materia_form.forma_ingreso.id_for_label }}"
+              class="form-label"
+              >Forma de Ingreso</label
+            >
+            {{
+            materia_form.forma_ingreso|add_class:"form-control"|attr:"id:formaIngreso"
+            }} {% if materia_form.forma_ingreso.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.forma_ingreso.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Fecha Toma Posesión -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.fecha_toma_posesion.id_for_label }}" class="form-label">Fecha de Toma de
-                        Posesión</label>
-                    {{ materia_form.fecha_toma_posesion|add_class:"form-control" }}
-                    {% if materia_form.fecha_toma_posesion.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.fecha_toma_posesion.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Resolución (solo visible si se selecciona "Disposición") -->
+          <div
+            class="form-group mb-3"
+            id="resolucionContainer"
+            style="display: none"
+          >
+            <label
+              for="{{ materia_form.numero_resolucion.id_for_label }}"
+              class="form-label"
+              >Nº</label
+            >
+            {{ materia_form.numero_dispo|add_class:"form-control" }} {% if
+            materia_form.numero_dispo.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.numero_resolucion.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Forma de Ingreso -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.forma_ingreso.id_for_label }}" class="form-label">Forma de
-                        Ingreso</label>
-                    {{ materia_form.forma_ingreso|add_class:"form-control"|attr:"id:formaIngreso" }}
-                    {% if materia_form.forma_ingreso.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.forma_ingreso.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Secuencia -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ materia_form.secuencia.id_for_label }}"
+              class="form-label"
+              >Secuencia</label
+            >
+            {{ materia_form.secuencia|add_class:"form-control" }} {% if
+            materia_form.secuencia.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.secuencia.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Resolución (solo visible si se selecciona "Disposición") -->
-                <div class="form-group mb-3" id="resolucionContainer" style="display: none;">
-                    <label for="{{ materia_form.numero_resolucion.id_for_label }}" class="form-label">Nº</label>
-                    {{ materia_form.numero_dispo|add_class:"form-control" }}
-                    {% if materia_form.numero_dispo.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.numero_resolucion.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Horario Inicio -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ materia_form.horario_inicio.id_for_label }}"
+              class="form-label"
+              >Horario de Inicio</label
+            >
+            {{
+            materia_form.horario_inicio|add_class:"form-control"|attr:"type:time"
+            }} {% if materia_form.horario_inicio.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.horario_inicio.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Secuencia -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.secuencia.id_for_label }}" class="form-label">Secuencia</label>
-                    {{ materia_form.secuencia|add_class:"form-control" }}
-                    {% if materia_form.secuencia.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.secuencia.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Horario Fin -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ materia_form.horario_fin.id_for_label }}"
+              class="form-label"
+              >Horario de Fin</label
+            >
+            {{
+            materia_form.horario_fin|add_class:"form-control"|attr:"type:time"
+            }} {% if materia_form.horario_fin.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.horario_fin.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Horario Inicio -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.horario_inicio.id_for_label }}" class="form-label">Horario de
-                        Inicio</label>
-                    {{ materia_form.horario_inicio|add_class:"form-control"|attr:"type:time" }}
-                    {% if materia_form.horario_inicio.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.horario_inicio.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Días de la Semana -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ materia_form.dias_semana.id_for_label }}"
+              class="form-label"
+              >Días de la Semana</label
+            >
+            {{ materia_form.dias_semana|add_class:"form-control" }} {% if
+            materia_form.dias_semana.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.dias_semana.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Horario Fin -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.horario_fin.id_for_label }}" class="form-label">Horario de Fin</label>
-                    {{ materia_form.horario_fin|add_class:"form-control"|attr:"type:time" }}
-                    {% if materia_form.horario_fin.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.horario_fin.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Descripción -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ materia_form.descripcion.id_for_label }}"
+              class="form-label"
+              >Descripción</label
+            >
+            {{ materia_form.descripcion|add_class:"form-control" }} {% if
+            materia_form.descripcion.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.descripcion.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Días de la Semana -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.dias_semana.id_for_label }}" class="form-label">Días de la
-                        Semana</label>
-                    {{ materia_form.dias_semana|add_class:"form-control" }}
-                    {% if materia_form.dias_semana.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.dias_semana.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Aula -->
+          <div class="form-group mb-3">
+            <label for="{{ materia_form.aula.id_for_label }}" class="form-label"
+              >Aula</label
+            >
+            {{ materia_form.aula|add_class:"form-control" }} {% if
+            materia_form.aula.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.aula.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Descripción -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.descripcion.id_for_label }}" class="form-label">Descripción</label>
-                    {{ materia_form.descripcion|add_class:"form-control" }}
-                    {% if materia_form.descripcion.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.descripcion.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Curso -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ materia_form.curso.id_for_label }}"
+              class="form-label"
+              >Curso</label
+            >
+            {{ materia_form.curso|add_class:"form-control" }} {% if
+            materia_form.curso.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.curso.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Aula -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.aula.id_for_label }}" class="form-label">Aula</label>
-                    {{ materia_form.aula|add_class:"form-control" }}
-                    {% if materia_form.aula.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.aula.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Especialidades -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ materia_form.especialidades.id_for_label }}"
+              class="form-label"
+              >Especialidades</label
+            >
+            {{ materia_form.especialidades|add_class:"form-control" }} {% if
+            materia_form.especialidades.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in materia_form.especialidades.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Curso -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.curso.id_for_label }}" class="form-label">Curso</label>
-                    {{ materia_form.curso|add_class:"form-control" }}
-                    {% if materia_form.curso.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.curso.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <h2>Asignación de Grupo y Docente</h2>
 
-                <!-- Especialidades -->
-                <div class="form-group mb-3">
-                    <label for="{{ materia_form.especialidades.id_for_label }}"
-                        class="form-label">Especialidades</label>
-                    {{ materia_form.especialidades|add_class:"form-control" }}
-                    {% if materia_form.especialidades.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in materia_form.especialidades.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Grupo -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ grupo_materia_form.grupo.id_for_label }}"
+              class="form-label"
+              >Grupo</label
+            >
+            {{ grupo_materia_form.grupo|add_class:"form-control" }} {% if
+            grupo_materia_form.grupo.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in grupo_materia_form.grupo.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <h2>Asignación de Grupo y Docente</h2>
+          <!-- Docente -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ grupo_materia_form.docente.id_for_label }}"
+              class="form-label"
+              >Docente</label
+            >
+            {{ grupo_materia_form.docente|add_class:"form-control" }} {% if
+            grupo_materia_form.docente.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in grupo_materia_form.docente.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Grupo -->
-                <div class="form-group mb-3">
-                    <label for="{{ grupo_materia_form.grupo.id_for_label }}" class="form-label">Grupo</label>
-                    {{ grupo_materia_form.grupo|add_class:"form-control" }}
-                    {% if grupo_materia_form.grupo.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in grupo_materia_form.grupo.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
+          <!-- Situación de Revista -->
+          <div class="form-group mb-3">
+            <label
+              for="{{ grupo_materia_form.situacion_revista.id_for_label }}"
+              class="form-label"
+              >Situación de Revista</label
+            >
+            {{ grupo_materia_form.situacion_revista|add_class:"form-control" }}
+            {% if grupo_materia_form.situacion_revista.errors %}
+            <div class="invalid-feedback d-block">
+              {% for error in grupo_materia_form.situacion_revista.errors %}
+              <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
 
-                <!-- Docente -->
-                <div class="form-group mb-3">
-                    <label for="{{ grupo_materia_form.docente.id_for_label }}" class="form-label">Docente</label>
-                    {{ grupo_materia_form.docente|add_class:"form-control" }}
-                    {% if grupo_materia_form.docente.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in grupo_materia_form.docente.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
-
-                <!-- Situación de Revista -->
-                <div class="form-group mb-3">
-                    <label for="{{ grupo_materia_form.situacion_revista.id_for_label }}" class="form-label">Situación de
-                        Revista</label>
-                    {{ grupo_materia_form.situacion_revista|add_class:"form-control" }}
-                    {% if grupo_materia_form.situacion_revista.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in grupo_materia_form.situacion_revista.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>
-
-                <!-- Botones -->
-                <div class="text-center mt-4">
-                    <button type="submit" class="auth-btn">GUARDAR</button>
-                    <a href="{% url 'materias_listado' %}" class="btn btn-logout">CANCELAR</a>
-                </div>
-            </form>
-
-        </div>
+          <!-- Botones -->
+          <div class="text-center mt-4">
+            <button type="submit" class="auth-btn">GUARDAR</button>
+            <a href="{% url 'materias_listado' %}" class="btn btn-logout"
+              >CANCELAR</a
+            >
+          </div>
+        </form>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
     <script src="{% static 'js/script_crear_materia.js' %}"></script>
-
-</body>
-
+  </body>
 </html>
