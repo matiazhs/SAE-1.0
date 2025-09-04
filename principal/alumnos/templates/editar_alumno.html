@@ -1,4 +1,5 @@
-{% load static %} {% load widget_tweaks %}
+{% load static %}
+{% load widget_tweaks %}
 
 <!DOCTYPE html>
 <html lang="es">
@@ -6,10 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editar Alumno</title>
-    <link
-      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
-      rel="stylesheet"
-    />
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/estilos_editar.css' %}" rel="stylesheet" />
   </head>
 
@@ -24,260 +22,247 @@
 
           <!-- Nombre -->
           <div class="form-group mb-3">
-            <label for="{{ form.nombre.id_for_label }}" class="form-label"
-              >Nombre</label
-            >
-            {{ form.nombre|add_class:"form-control" }} {% if form.nombre.errors
-            %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.nombre.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.nombre.id_for_label }}" class="form-label">Nombre</label>
+            {% if form.nombre.errors %}
+              {{ form.nombre|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.nombre.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.nombre|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- Apellido -->
           <div class="form-group mb-3">
-            <label for="{{ form.apellido.id_for_label }}" class="form-label"
-              >Apellido</label
-            >
-            {{ form.apellido|add_class:"form-control" }} {% if
-            form.apellido.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.apellido.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.apellido.id_for_label }}" class="form-label">Apellido</label>
+            {% if form.apellido.errors %}
+              {{ form.apellido|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.apellido.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.apellido|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- DNI -->
           <div class="form-group mb-3">
-            <label for="{{ form.dni.id_for_label }}" class="form-label"
-              >DNI</label
-            >
-            {{ form.dni|add_class:"form-control" }} {% if form.dni.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.dni.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.dni.id_for_label }}" class="form-label">DNI</label>
+            {% if form.dni.errors %}
+              {{ form.dni|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.dni.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.dni|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- CUIL -->
           <div class="form-group mb-3">
-            <label for="{{ form.cuil.id_for_label }}" class="form-label"
-              >CUIL</label
-            >
-            {{ form.cuil|add_class:"form-control" }} {% if form.cuil.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.cuil.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.cuil.id_for_label }}" class="form-label">CUIL</label>
+            {% if form.cuil.errors %}
+              {{ form.cuil|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.cuil.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.cuil|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- Fecha de Nacimiento -->
           <div class="form-group mb-4">
-            <label
-              for="{{ form.fecha_nacimiento.id_for_label }}"
-              class="form-label"
-              >Fecha de Nacimiento</label
-            >
-            {{ form.fecha_nacimiento|add_class:"form-control"|attr:"type:date"
-            }} {% if form.fecha_nacimiento.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.fecha_nacimiento.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.fecha_nacimiento.id_for_label }}" class="form-label">Fecha de Nacimiento</label>
+            {% if form.fecha_nacimiento.errors %}
+              {{ form.fecha_nacimiento|attr:"type:date"|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.fecha_nacimiento.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.fecha_nacimiento|attr:"type:date"|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- Libro -->
           <div class="form-group mb-3">
-            <label for="{{ form.libro.id_for_label }}" class="form-label"
-              >Libro</label
-            >
-            {{ form.libro|add_class:"form-control" }} {% if form.libro.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.libro.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.libro.id_for_label }}" class="form-label">Libro</label>
+            {% if form.libro.errors %}
+              {{ form.libro|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.libro.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.libro|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- Folio -->
           <div class="form-group mb-3">
-            <label for="{{ form.folio.id_for_label }}" class="form-label"
-              >Folio</label
-            >
-            {{ form.folio|add_class:"form-control" }} {% if form.folio.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.folio.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.folio.id_for_label }}" class="form-label">Folio</label>
+            {% if form.folio.errors %}
+              {{ form.folio|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.folio.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.folio|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- N° Legajo -->
           <div class="form-group mb-3">
-            <label
-              for="{{ form.numero_legajo.id_for_label }}"
-              class="form-label"
-              >Nº Legajo</label
-            >
-            {{ form.numero_legajo|add_class:"form-control" }} {% if
-            form.nlegajo.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.numero_legajo.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.numero_legajo.id_for_label }}" class="form-label">Nº Legajo</label>
+            {% if form.numero_legajo.errors %}
+              {{ form.numero_legajo|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.numero_legajo.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.numero_legajo|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- Libro Matriz -->
           <div class="form-group mb-3">
-            <label for="{{ form.libro_matriz.id_for_label }}" class="form-label"
-              >Libro Matriz</label
-            >
-            {{ form.libro_matriz|add_class:"form-control" }} {% if
-            form.libro_matriz.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.libro_matriz.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.libro_matriz.id_for_label }}" class="form-label">Libro Matriz</label>
+            {% if form.libro_matriz.errors %}
+              {{ form.libro_matriz|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.libro_matriz.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.libro_matriz|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- Folio Matriz -->
           <div class="form-group mb-4">
-            <label for="{{ form.folio_matriz.id_for_label }}" class="form-label"
-              >Folio Matriz</label
-            >
-            {{ form.folio_matriz|add_class:"form-control" }} {% if
-            form.folio_matriz.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.folio_matriz.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.folio_matriz.id_for_label }}" class="form-label">Folio Matriz</label>
+            {% if form.folio_matriz.errors %}
+              {{ form.folio_matriz|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.folio_matriz.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.folio_matriz|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- Email -->
           <div class="form-group mb-4">
-            <label for="{{ form.email.id_for_label }}" class="form-label"
-              >Email</label
-            >
-            {{ form.email|add_class:"form-control" }} {% if form.email.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.email.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+            {% if form.email.errors %}
+              {{ form.email|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.email.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.email|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- Telefono -->
           <div class="form-group mb-4">
-            <label for="{{ form.telefono.id_for_label }}" class="form-label"
-              >Telefono</label
-            >
-            {{ form.telefono|add_class:"form-control" }} {% if
-            form.telefono.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.telefono.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.telefono.id_for_label }}" class="form-label">Telefono</label>
+            {% if form.telefono.errors %}
+              {{ form.telefono|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.telefono.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.telefono|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- Domicilio -->
           <div class="form-group mb-4">
-            <label for="{{ form.domicilio.id_for_label }}" class="form-label"
-              >Domicilio</label
-            >
-            {{ form.domicilio|add_class:"form-control" }} {% if
-            form.domicilio.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.domicilio.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.domicilio.id_for_label }}" class="form-label">Domicilio</label>
+            {% if form.domicilio.errors %}
+              {{ form.domicilio|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.domicilio.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.domicilio|add_class:"form-control" }}
             {% endif %}
           </div>
 
-          <!-- Activo 
-                <div class="form-group mb-4">
-                    <label for="{{ form.activo.id_for_label }}" class="form-label">Activo</label>
-                    {{ form.activo|add_class:"form-control" }}
-                    {% if form.activo.errors %}
-                    <div class="invalid-feedback d-block">
-                        {% for error in form.activo.errors %}
-                        <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                </div>-->
-
           <!-- Curso -->
           <div class="form-group mb-4">
-            <label for="{{ form.curso.id_for_label }}" class="form-label"
-              >Curso</label
-            >
-            {{ form.curso|add_class:"form-control" }} {% if form.curso.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.curso.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.curso.id_for_label }}" class="form-label">Curso</label>
+            {% if form.curso.errors %}
+              {{ form.curso|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.curso.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.curso|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- Especialidad -->
           <div class="form-group mb-4">
-            <label for="{{ form.especialidad.id_for_label }}" class="form-label"
-              >Especialidad</label
-            >
-            {{ form.especialidad|add_class:"form-control" }} {% if
-            form.especialidad.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.especialidad.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            {% if form.especialidad.errors %}
+              {{ form.especialidad|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.especialidad.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.especialidad|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- Grupo -->
           <div class="form-group mb-4">
-            <label for="{{ form.grupo.id_for_label }}" class="form-label"
-              >Grupo</label
-            >
-            {{ form.grupo|add_class:"form-control" }} {% if form.grupo.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in form.grupo.errors %}
-              <p>{{ error }}</p>
-              {% endfor %}
-            </div>
+            <label for="{{ form.grupo.id_for_label }}" class="form-label">Grupo</label>
+            {% if form.grupo.errors %}
+              {{ form.grupo|add_class:"form-control is-invalid" }}
+              <div class="invalid-feedback d-block">
+                {% for error in form.grupo.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.grupo|add_class:"form-control" }}
             {% endif %}
           </div>
 
           <!-- Botones -->
           <div class="text-center mt-4">
             <button type="submit" class="auth-btn">ACTUALIZAR</button>
-            <a href="{% url 'alumnos_listado' %}" class="btn btn-logout"
-              >CANCELAR</a
-            >
+            <a href="{% url 'alumnos_listado' %}" class="btn btn-logout">CANCELAR</a>
           </div>
         </form>
       </div>

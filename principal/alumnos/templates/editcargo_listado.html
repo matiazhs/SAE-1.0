@@ -1,4 +1,5 @@
-{% load static %} {% load widget_tweaks %}
+{% load static %}
+{% load widget_tweaks %}
 
 <!DOCTYPE html>
 <html lang="es">
@@ -7,11 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editar Asignación de Cargo</title>
 
-    <link
-      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
-      rel="stylesheet"
-    />
-
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/estilos_editar.css' %}" rel="stylesheet" />
   </head>
 
@@ -26,61 +23,50 @@
           {% csrf_token %}
 
           <div class="form-group mb-3">
-            <label for="{{ form.docente.id_for_label }}" class="form-label"
-              >Docente</label
-            >
+            <label for="{{ form.docente.id_for_label }}" class="form-label">Docente</label>
             {{ form.docente|add_class:"form-control" }}
           </div>
 
           <div class="form-group mb-4">
-            <label for="{{ form.cargo.id_for_label }}" class="form-label"
-              >Cargo</label
-            >
-            {{ form.cargo|add_class:"form-control" }} {% if form.cargo.errors %}
+            <label for="{{ form.cargo.id_for_label }}" class="form-label">Cargo</label>
+            {{ form.cargo|add_class:"form-control" }}
+            {% if form.cargo.errors %}
             <div class="invalid-feedback d-block">
               {% for error in form.cargo.errors %}
-              <p>{{ error }}</p>
+                <p>{{ error }}</p>
               {% endfor %}
             </div>
             {% endif %}
           </div>
 
           <div class="form-group mb-4">
-            <label for="{{ form.curso.id_for_label }}" class="form-label"
-              >Curso</label
-            >
-            {{ form.curso|add_class:"form-select" }} {% if form.curso.errors %}
+            <label for="{{ form.curso.id_for_label }}" class="form-label">Curso</label>
+            {{ form.curso|add_class:"form-select" }}
+            {% if form.curso.errors %}
             <div class="invalid-feedback d-block">
               {% for error in form.curso.errors %}
-              <p>{{ error }}</p>
+                <p>{{ error }}</p>
               {% endfor %}
             </div>
             {% endif %}
           </div>
 
           <div class="form-group mb-4">
-            <label
-              for="{{ form.especialidades.id_for_label }}"
-              class="form-label"
-              >Especialidad</label
-            >
-            {{ form.especialidades|add_class:"form-control" }} {% if
-            form.especialidades.errors %}
+            <label for="{{ form.especialidades.id_for_label }}" class="form-label">Especialidad</label>
+            {{ form.especialidades|add_class:"form-control" }}
+            {% if form.especialidades.errors %}
             <div class="invalid-feedback d-block">
               {% for error in form.especialidades.errors %}
-              <p>{{ error }}</p>
+                <p>{{ error }}</p>
               {% endfor %}
             </div>
             {% endif %}
           </div>
 
-          <button type="submit" class="auth-btn btn btn-primary">
-            GUARDAR CAMBIOS
-          </button>
+          <button type="submit" class="auth-btn btn btn-primary">GUARDAR CAMBIOS</button>
+
           <center>
-            <a href="{% url 'asgcargos_listado' %}" class="btn btn-logout"
-              >CANCELAR</a
-            >
+            <a href="{% url 'asgcargos_listado' %}" class="btn btn-logout">CANCELAR</a>
           </center>
         </form>
       </div>
