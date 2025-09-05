@@ -28,8 +28,8 @@
             <label for="{{ form.nombre.id_for_label }}" class="form-label"
               >Nombre</label
             >
-            {{ form.nombre|add_class:"form-control" }} {% if form.nombre.errors
-            %}
+            {{ form.nombre|add_class:"form-control" }} 
+            {% if form.nombre.errors%}
             <div class="invalid-feedback d-block">
               {% for error in form.nombre.errors %}
               <p>{{ error }}</p>
@@ -43,8 +43,8 @@
             <label for="{{ form.apellido.id_for_label }}" class="form-label"
               >Apellido</label
             >
-            {{ form.apellido|add_class:"form-control" }} {% if
-            form.apellido.errors %}
+            {{ form.apellido|add_class:"form-control" }} 
+            {% if form.apellido.errors %}
             <div class="invalid-feedback d-block">
               {% for error in form.apellido.errors %}
               <p>{{ error }}</p>
@@ -58,7 +58,8 @@
             <label for="{{ form.cuil.id_for_label }}" class="form-label"
               >CUIL</label
             >
-            {{ form.cuil|add_class:"form-control" }} {% if form.cuil.errors %}
+            {{ form.cuil|add_class:"form-control" }} 
+            {% if form.cuil.errors %}
             <div class="invalid-feedback d-block">
               {% for error in form.cuil.errors %}
               <p>{{ error }}</p>
@@ -71,11 +72,9 @@
           <div class="form-group mb-3">
             <label
               for="{{ form.fecha_nacimiento.id_for_label }}"
-              class="form-label"
-              >Fecha de Nacimiento</label
-            >
-            {{ form.fecha_nacimiento|add_class:"form-control"|attr:"type:date"
-            }} {% if form.fecha_nacimiento.errors %}
+              class="form-label">Fecha de Nacimiento</label>
+            {{ form.fecha_nacimiento|add_class:"form-control"|attr:"type:date"}} 
+            {% if form.fecha_nacimiento.errors %}
             <div class="invalid-feedback d-block">
               {% for error in form.fecha_nacimiento.errors %}
               <p>{{ error }}</p>
@@ -91,8 +90,8 @@
               class="form-label"
               >Nº Legajo</label
             >
-            {{ form.numero_legajo|add_class:"form-control" }} {% if
-            form.numero_legajo.errors %}
+            {{ form.numero_legajo|add_class:"form-control" }} 
+            {% if form.numero_legajo.errors %}
             <div class="invalid-feedback d-block">
               {% for error in form.numero_legajo.errors %}
               <p>{{ error }}</p>
@@ -106,7 +105,8 @@
             <label for="{{ form.email.id_for_label }}" class="form-label"
               >Email</label
             >
-            {{ form.email|add_class:"form-control" }} {% if form.email.errors %}
+            {{ form.email|add_class:"form-control" }} 
+            {% if form.email.errors %}
             <div class="invalid-feedback d-block">
               {% for error in form.email.errors %}
               <p>{{ error }}</p>
@@ -120,8 +120,8 @@
             <label for="{{ form.telefono.id_for_label }}" class="form-label"
               >Teléfono</label
             >
-            {{ form.telefono|add_class:"form-control" }} {% if
-            form.telefono.errors %}
+            {{ form.telefono|add_class:"form-control" }} 
+            {% if form.telefono.errors %}
             <div class="invalid-feedback d-block">
               {% for error in form.telefono.errors %}
               <p>{{ error }}</p>
@@ -135,8 +135,8 @@
             <label for="{{ form.domicilio.id_for_label }}" class="form-label"
               >Domicilio</label
             >
-            {{ form.domicilio|add_class:"form-control" }} {% if
-            form.domicilio.errors %}
+            {{ form.domicilio|add_class:"form-control" }} 
+            {% if form.domicilio.errors %}
             <div class="invalid-feedback d-block">
               {% for error in form.domicilio.errors %}
               <p>{{ error }}</p>
@@ -152,8 +152,8 @@
               class="form-label"
               >Teléfono de Emergencia</label
             >
-            {{ form.telefono_emergencia|add_class:"form-control" }} {% if
-            form.telefono_emergencia.errors %}
+            {{ form.telefono_emergencia|add_class:"form-control" }} 
+            {% if form.telefono_emergencia.errors %}
             <div class="invalid-feedback d-block">
               {% for error in form.telefono_emergencia.errors %}
               <p>{{ error }}</p>

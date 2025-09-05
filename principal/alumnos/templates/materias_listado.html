@@ -130,20 +130,18 @@
 
               <td>
                 {% for asignacion in materia.grupo_asignaciones.all %} {{
-                asignacion.grupo.nombre }}{% if not forloop.last %}<br />{%
-                endif %} {% empty %} Sin grupos {% endfor %}
+                asignacion.grupo.nombre }}{% if not forloop.last %}<br />{%endif %} {% empty %} Sin grupos {% endfor %}
               </td>
 
               <td>
-                {% for esp in materia.especialidades.all %} {{ esp.nombre }}{%
-                if not forloop.last %}, {% endif %} {% empty %} Sin
-                especialidades {% endfor %}
+                {% for esp in materia.especialidades.all %} {{ esp.nombre }}{% if not forloop.last %}, {% endif %} 
+                {% empty %} Sin especialidades {% endfor %}
               </td>
 
               <td>
-                {% for asignacion in materia.grupo_asignaciones.all %} {% if
-                asignacion.docente %} {{ asignacion.docente }} {% else %} Sin
-                docente {% endif %} {% if not forloop.last %}<br />{% endif %}
+                {% for asignacion in materia.grupo_asignaciones.all %} {% if asignacion.docente %} {{ asignacion.docente }} 
+                {% else %} Sin docente {% endif %} 
+                {% if not forloop.last %}<br />{% endif %}
                 {% empty %} Sin docentes {% endfor %}
               </td>
 
